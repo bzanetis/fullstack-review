@@ -16,6 +16,13 @@ let repoSchema = mongoose.Schema({
 
 let Repo = mongoose.model('Repo', repoSchema);
 
+data.save().then(function(err) {
+  if (err) {
+  return handleError(err);
+  }
+});
+
+
 let save = (repos) => {
 
   var data = new Repo ({
@@ -26,7 +33,11 @@ let save = (repos) => {
     forks: repos.forks,
     watchers: repos.watchers
   })
-  data.save(()=>{});
+  data.save().then(function(err) {
+    if (err) {
+    return handleError(err);
+    }
+  });
 };
 
 module.exports.Repo = Repo;

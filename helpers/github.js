@@ -16,14 +16,13 @@ let getReposByUsername = (username, callback) => {
       'Authorization': `token ${config.TOKEN}`
     }
   };
-  request.get(options, function (err,res,body) {
+  request(options, function (err,res,data) {
     if (err) {
       console.log(err)
-    }
-    if (res.statusCode !== 200 ) {
+    } else {
       console.log(res.statusCode)
+      callback(data)
     }
-    callback(body)
   });
 };
 
