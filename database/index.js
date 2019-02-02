@@ -5,7 +5,7 @@ let repoSchema = mongoose.Schema({
   id: Number,
   name: String,
   repo_url: String,
-  owner: { login: { type: String }},
+  owner: String,
   forks: Number,
   watchers: Number
 });
@@ -13,6 +13,7 @@ let repoSchema = mongoose.Schema({
 let Repo = mongoose.model('Repo', repoSchema);
 
 let save = repos => {
+  for (var i = 0; i < repos.length; i++) {
   var data = new Repo {(
     id: repos.id,
     name: repos.name,
@@ -27,6 +28,7 @@ let save = repos => {
       return console.log(err);
     }
   })
+ }
 }
 
 module.exports.save = save;

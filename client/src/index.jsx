@@ -7,11 +7,15 @@ import RepoList from './components/RepoList.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       repos: []
     }
 
   }
+
+  //username is getting passed to server in Ajax post
+
+
 
   search (term) {
     console.log(`${term} was searched`);
