@@ -10,17 +10,32 @@ class App extends React.Component {
     this.state = {
       repos: []
     }
-
+    // this.search = this.search.bind(this);
+    // this.get = this.get.bind(this);
   }
 
   //username is getting passed to server in Ajax post
+  //axios.get('/api/event')
 
 
 
   search (term) {
     console.log(`${term} was searched`);
-    // TODO
-  }
+
+    $.ajax({
+      url: '/repos',
+      method: 'POST',
+      contentType: 'application/json',
+      data: {searchTerm: term},
+      success: function(data){
+        let parsedData = JSON.parse(data)
+        console.log(parsedData  )
+      },
+      dataType: 'text'
+    });
+  };
+
+
 
   render () {
     return (<div>

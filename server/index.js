@@ -1,7 +1,8 @@
 const express = require('express');
 let app = express();
-var bodyParser = require('body-parser');
-
+let bodyParser = require('body-parser');
+let db = require('../database/index.js');
+let repo = require('../database/index.js').Repo;
 
 app.use(express.static(__dirname + '/../client/dist'));
 
@@ -21,5 +22,6 @@ let port = 1128;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
+  db.save();
 });
 
