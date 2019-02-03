@@ -36,13 +36,15 @@ app.post('/repos', function (req, res) {
 app.get('/repos', function (req, res) {
   // TODO - your code here!
   // This route should send back the top 25 repos
-  findTopRepos(function(docs) {
-    console.log(typeof docs)
-    res.json(docs)
+  // findTopRepos(function(docs) {
+  //   console.log(typeof docs)
+  //   res.json(docs)
+    db.findTopRepos()
+    .then((repos) => res.send(repos))
   });
-    console.log(findTopRepos)
+    //console.log(findTopRepos)
 
-});
+//});
 
 let port = 1128;
 

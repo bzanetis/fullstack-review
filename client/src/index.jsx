@@ -11,7 +11,7 @@ class App extends React.Component {
       repos: []
     }
 
-    // this.getRepos = this.getRepos.bind(this);
+     this.getRepos = this.getRepos.bind(this);
   }
 
   componentDidMount () {
@@ -25,8 +25,10 @@ class App extends React.Component {
       url: 'http://localhost:1128/repos',
       method: 'GET',
       success: function(results){
-        console.log(results)
+        console.log(results, 'get req from client successful')
+        this.setState({repos: results});
       },
+      context: this,
       error: function (results) {
         console.log('error in Get req from client')
       }

@@ -41,10 +41,12 @@ let save = (results) => {
 //loops through collection checking forks col
 //input:
   //use sort by descend method on forks key: db.repo.find().sort( { forks: -1 } )
-let findTopRepos = function(callback){
-  Repo.find(function(err, docs) {
-    callback(docs);
-  }).sort( { forks: -1 }).limit(25);
+let findTopRepos = function(){
+  let query = Repo.find({}).sort({forks: -1}).limit(25);
+  return query.exec();
+  // Repo.find(function(err, docs) {
+  //   callback(docs);
+  // }).sort( { forks: -1 }).limit(25);
 
 };
 
