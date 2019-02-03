@@ -10,8 +10,7 @@ class App extends React.Component {
     this.state = {
       repos: []
     }
-    // this.search = this.search.bind(this);
-    // this.get = this.get.bind(this);
+
     // this.getRepos = this.getRepos.bind(this);
   }
 
