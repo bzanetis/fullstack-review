@@ -15,24 +15,24 @@ class App extends React.Component {
     // this.getRepos = this.getRepos.bind(this);
   }
 
-  // componentDidMount () {
-  //   this.getRepos();
-  // }
+  componentDidMount () {
+    this.getRepos();
+  }
 
-  //username is getting passed to server in Ajax post
-  //axios.get('/api/event')
-  // getRepos () {
-  //   $.ajax({
-  //     url: 'http://localhost:1128/repos',
-  //     method: 'GET',
-  //     success: function(data){
-  //       console.log(data)
-  //     },
-  //     error: function (data) {
-  //       console.log('error in Get req from client')
-  //     };
-  //   }
-  // }
+  // username is getting passed to server in Ajax post
+  // axios.get('/api/event')
+  getRepos () {
+    $.ajax({
+      url: 'http://localhost:1128/repos',
+      method: 'GET',
+      success: function(results){
+        console.log(results)
+      },
+      error: function (results) {
+        console.log('error in Get req from client')
+      }
+    })
+  };
 
 
 

@@ -17,11 +17,12 @@ let getReposByUsername = (username, callback) => {
     }
   };
   request(options, function (err,res,data) {
+    console.log('<<<<<', data)
     if (err) {
       console.log(err)
     } else {
       console.log(res.statusCode)
-      callback(data)
+      callback(JSON.parse(data))
     }
   });
 };
